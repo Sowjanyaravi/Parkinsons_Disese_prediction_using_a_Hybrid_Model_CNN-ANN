@@ -80,10 +80,6 @@ if uploaded_file:
     st.subheader("📊 Uploaded Data Preview")
     st.dataframe(df.head())
 
-    # Preprocessing: Drop unnecessary columns if they exist
-    columns_to_drop = ["Patient_ID", "motor_UPDRS", "total_UPDRS"]
-    df = df.drop(columns=[col for col in columns_to_drop if col in df.columns], errors="ignore")
-
     # Standardize the features using the saved scaler
     X_scaled = scaler.transform(df.values)
 
